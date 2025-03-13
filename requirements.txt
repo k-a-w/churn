@@ -1,0 +1,24 @@
+ipykernel #allows us to create jupyter notebooks in the modules
+pandas
+numpy
+matplotlib
+plotly
+seaborn
+scikit-learn #for ML models, also traintestsplit function
+imblearn #where SMOTE is
+xgboost #optimize gradient boosting library
+catboost
+pymongo #allows us to import from MongoDB
+from_root #utlity that allows to get to root path dynamically
+evidently==0.2.8 #library used to detect data drift
+dill #allows us to create a pickle file (serialize and deserialize objects)
+PyYAML #parsing and writing YAML
+neuro_mf #related to Machine Learning packages
+boto3 #for us to interact with AWS
+mypy-boto3-s3 #helps with communicating with AWS
+botocore
+fastapi #for flask type framework
+uvicorn #server for running fast api
+jinja2 #templating engine for frameworks that dynamically generate HTML
+python-multiplart
+#-e . #syntax used in python to activate and set up 
