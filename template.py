@@ -34,8 +34,32 @@ list_of_files = [
     f"{project_name}/pipeline/training_pipeline.py",
     f"{project_name}/pipeline/prediction_pipeline.py",
 
-    f"{project_name}/util/__init__.py",
+    f"{project_name}/util/__init__.py", #store functions we create that we'll use multiple times
+    f"{project_name}/utils/main_utils.py"
 
+    ## done with ar
 
+    "app.py", #holds interface
+    "requirements.txt", #allows us to list all of the libraries (and potentially versions) needed for this
+    #example: pandas, python version, etc. ; running this will install these in the virtual environment
+    "Dockerfile", #image of our package/project
+    ".dockerignore", #so we can choose what we don't want to 'docker-ize'
+    "setup.py",
+    "config/model.yaml",
+    "config/schema.yaml"
 
 ]
+
+#now we implement logic to create it
+
+for filepath in list_of_files:
+    filepath = Path(filepath)
+    filedir, filename = os.path.split(filepath)
+    if filedir !="":
+        os.makedirs(filedir, exist_ok = True)
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
+        with open(filepath, "w"): #had f before the colon but it got mad about it
+            pass
+    else:
+        print(f"file is already present at: {filepath}")
+
