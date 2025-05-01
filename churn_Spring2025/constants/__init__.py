@@ -4,7 +4,7 @@ from datetime import date
 
 DATABASE_NAME = "TELCO_CHURN" #Schema
 COLLECTION_NAME = "telco_data" #Name of the table
-MONGODBURL = "mongodb"
+MONGODBURL = "mongodb" #Might need to be "MONGODB_URL"
 
 PIPELINE_NAME:str = "telco_churn_pipeline"
 ARTIFACT_DIR:str = "artifacts"
@@ -13,7 +13,7 @@ MODEL_FILE_NAME = "model.pkl"
 
 #If it were live data, we would need to update duration (if we changed the tenure)
 
-TARGET_CHURN = "Churn"
+TARGET_COLUMN = "Churn"
 PREPROCESSING_OBJECT_FILE_NAME = "preprocessor.pkl"
 
 FILE_NAME:str = "telco_churn.csv"
@@ -25,6 +25,11 @@ AWS_ACCESS_KEY_ID_ENV = "AWS_ACCESS_KEY_ID"
 AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
 REGION_NAME = "us-east-1"
 
+"""
+Repeated error messages
+"""
+MSG_DF_EMPTY = "The dataframe is empty. Please check the " \
+                "data loading process."
 
 """
 Data Ingestion related constants with DATA_INGESTION VAR NAME
@@ -40,7 +45,7 @@ DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: float = 0.2
 Data Validation related constants with DATA_VALIDATION VAR NAME
 """
 DATA_VALIDATION_DIR_NAME:str = "data_validation"
-DATA_VALIDATION_DRIFT_REPORT: str = "drift_report"
+DATA_VALIDATION_DRIFT_REPORT_DIR: str = "drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_NAME: str = "report.yaml"
 #uses package called evidently
 
