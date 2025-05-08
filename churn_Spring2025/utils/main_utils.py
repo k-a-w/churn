@@ -21,9 +21,6 @@ def read_yaml_file(file_path: str) -> dict:
     Returns:
         dict: A dictionary that holds the values from the YAML file.
     """
-#ASK IF I can play around with using .__name__ and decorators
-#StackOverflow Discussion:
-# https://stackoverflow.com/questions/251464/how-to-get-a-function-name-as-a-string
     logging.info("Entered the read_yaml_file method of utils")
 
     try:
