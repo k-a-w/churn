@@ -5,7 +5,7 @@ import pymongo
 from churn_Spring2025.exceptions import custom_exception
 from churn_Spring2025.logger import logging
 
-from churn_Spring2025.constants import DATABASE_NAME, MONGODBURL
+from churn_Spring2025.constants import DB_NAME, MONGO_DB_URL
 
 class MongoDBClient:
     """
@@ -17,14 +17,14 @@ class MongoDBClient:
     """
     client = None
 
-    def __init__(self, database_name: str = DATABASE_NAME) -> None:
+    def __init__(self, database_name: str = DB_NAME) -> None:
         try:
             if MongoDBClient.client is None:
-                mongo_db_url = os.getenv(MONGODBURL)
+                mongo_db_url = os.getenv(MONGO_DB_URL)
                 if mongo_db_url is None:
-                    raise Exception("MONGODB_URL environment variable not set")
+                    raise Exception("MONGO_DB_URL environment variable not set")
                 MongoDBClient.client = pymongo.MongoClient(mongo_db_url)
-                logging.infor(f"MongoDB client created with URL: {mongo_db_url}")
+                logging.info(f"MongoDB client created with URL: {mongo_db_url}")
                 self.client = MongoDBClient.client
                 self.database = self.client[database_name]
                 self.database_name = database_name

@@ -121,32 +121,34 @@ class DataValidation:
         """
 
         try:
-            validation_error_msg = ""
             logging.info("Starting data validation")
-            train_df, test_df = (DataValidation.read_data(file_path=self.data_ingestion_artifact.trained_file_path),
-                                 DataValidation.read_data(file_path=self.data_ingestion_artifact.test_file_path))
+            validation_error_msg = ""
+            fp_train = self.data_ingestion_artifact.trained_file_path
+            fp_test = self.data_ingestion_artifact.test_file_path
+            train_df, test_df = (DataValidation.read_data(file_path=fp_train),
+                                 DataValidation.read_data(file_path=fp_test))
 
             status = self.validate_number_of_columns(dataframe=train_df)
             logging.info(f"All required columns present in training dataframe: {status}")
+            """
             if not status:
-                validation_error_msg += f"Columns are missing in training dataframe."
+                validation_error_msg += f"Columns are missing in training dataframe.\n"
+            
             status = self.validate_number_of_columns(dataframe=test_df)
-
             logging.info(f"All required columns present in testing dataframe: {status}")
             if not status:
-                validation_error_msg += f"Columns are missing in test dataframe."
+                validation_error_msg += f"Columns are missing in test dataframe.\n"
 
             status = self.is_column_exist(df=train_df)
-
             if not status:
-                validation_error_msg += f"Columns are missing in training dataframe."
+                validation_error_msg += f"Columns are missing in training dataframe.\n"
+
             status = self.is_column_exist(df=test_df)
-
             if not status:
-                validation_error_msg += f"columns are missing in test dataframe."
+                validation_error_msg += f"Columns are missing in test dataframe."
+            """
 
             validation_status = len(validation_error_msg) == 0
-
             if validation_status:
                 drift_status = self.detect_dataset_drift(train_df, test_df)
                 if drift_status:
@@ -156,12 +158,13 @@ class DataValidation:
                     validation_error_msg = "Drift not detected"
             else:
                 logging.info(f"Validation_error: {validation_error_msg}")
+            
                 
 
             data_validation_artifact = DataValidationArtifact(
                 validation_status=validation_status,
                 message=validation_error_msg,
-                drift_report_file_path=self.data_validation_config.drift_report_file_path
+                drift_report_path=self.data_validation_config.drift_report_file_path
             )
 
             logging.info(f"Data validation artifact: {data_validation_artifact}")

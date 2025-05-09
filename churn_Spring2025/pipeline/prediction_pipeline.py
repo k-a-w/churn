@@ -116,11 +116,11 @@ class TelcoClassifier:
 
     def predict(self, dataframe) -> str:
         """
-        This is the method of USvisaClassifier
+        This is the method of ____
         Returns: Prediction in string format
         """
         try:
-            logging.info("Entered predict method of USvisaClassifier class")
+            logging.info("Entered predict method of TelcoClassifier class")
             model = TelcoEstimator(
                 bucket_name=self.prediction_pipeline_config.model_bucket_name,
                 model_path=self.prediction_pipeline_config.model_file_path,

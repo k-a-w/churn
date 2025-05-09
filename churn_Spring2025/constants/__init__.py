@@ -2,9 +2,9 @@
 import os
 from datetime import date
 
-DATABASE_NAME = "TELCO_CHURN" #Schema
+DB_NAME = "DB_NAME" #Schema
 COLLECTION_NAME = "telco_data" #Name of the table
-MONGODBURL = "mongodb" #Might need to be "MONGODB_URL"
+MONGO_DB_URL = "MONGO_DB_URL" #Might need to be "MONGODB_URL"
 
 PIPELINE_NAME:str = "telco_churn_pipeline"
 ARTIFACT_DIR:str = "artifacts"
@@ -70,5 +70,5 @@ AWS_ACCESS_KEY_ID_ENV = "AWS_ACCESS_KEY_ID"
 AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
 REGION_NAME = "us-east-1"
 
-APP_HOST = "0.0.0.0"
+APP_HOST = "127.0.0.1" #updated 5/9
 APP_PORT = 8080

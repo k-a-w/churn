@@ -36,9 +36,12 @@ class DataIngestion:
         try:
             logging.info("Exporting data from MongoDB.")
             telco_data = TelcoData()
-            dataframe = telco_data.export_collection_to_dataframe(collection_name 
+            #Changed telco_data.export_collection_to_dataframe(
+            #--5/8/2025 1:31 pm
+            dataframe = telco_data.extract_data(collection_name 
                             = self.data_ingestion_config.collection_name)
             logging.info(f"Shape of dataframe: {dataframe.shape}")
+
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
             dir_path = os.path.dirname(feature_store_file_path)
             os.makedirs(dir_path, exist_ok=True)

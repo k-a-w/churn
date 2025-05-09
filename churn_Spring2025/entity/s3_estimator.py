@@ -16,7 +16,7 @@ class TelcoEstimator:
         """
         self.bucket_name = bucket_name
         self.s3 = SimpleStorageService()
-        self.module_path = model_path
+        self.model_path = model_path
         self.loaded_model:TelcoModel=None
     
     def is_model_present(self, model_path):
@@ -44,7 +44,7 @@ class TelcoEstimator:
 
         try:
             self.s3.upload_file(from_file, 
-                                to_filename=self.module_path,
+                                to_filename=self.model_path,
                                 bucket_name=self.bucket_name,
                                 remove=remove
                                 )

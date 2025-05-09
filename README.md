@@ -4,7 +4,7 @@ Goals: in order to explain, predict, and classify customer churn for a large cor
 
 Following along with video
 
-
+Added pip install python-dotenv for aws_connection.py
 
 
 

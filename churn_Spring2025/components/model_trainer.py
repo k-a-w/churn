@@ -49,9 +49,10 @@ class ModelTrainer:
             y_pred = model_obj.predict(x_test)
             
             accuracy = accuracy_score(y_test, y_pred) 
-            f1 = f1_score(y_test, y_pred)  
-            precision = precision_score(y_test, y_pred)  
-            recall = recall_score(y_test, y_pred)
+            pos_label = 'No' #added for f1_score, precision, and recall
+            f1 = f1_score(y_test, y_pred, pos_label=pos_label)  
+            precision = precision_score(y_test, y_pred, pos_label=pos_label)  
+            recall = recall_score(y_test, y_pred, pos_label=pos_label) #removed pos_label='Yes' after adding
             metric_artifact = ClassificationMetricArtifact(f1_score=f1, precision_score=precision, recall_score=recall)
             
             return best_model_detail, metric_artifact
@@ -90,12 +91,9 @@ class ModelTrainer:
 
             model_trainer_artifact = ModelTrainerArtifact(
                 trained_model_file_path=self.model_trainer_config.trained_model_file_path,
-                metric_artifact=metric_artifact,
+                metric_artifact=metric_artifact, #removed after __init__() error
             )
             logging.info(f"Model trainer artifact: {model_trainer_artifact}")
             return model_trainer_artifact
         except Exception as e:
             raise custom_exception(e, sys) from e
-#Max recommended lengths of code (79 and 72 for docstrings)
-###############################################################################
-########################################################################

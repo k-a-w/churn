@@ -126,9 +126,9 @@ class DataTransformation:
 
                 logging.info("Got train features and test features of training dataset")
 
-                drop_columns = self.schema_config['drop_columns']
+                drop_col = self.schema_config['drop_columns']
                 input_feature_train_df = drop_columns(df=input_feature_train_df,
-                                                       cols = drop_columns)
+                                                       cols = drop_col)
                 logging.info(f"Dropping columns {drop_columns} from the train \
                              and test dataframes")
                 
@@ -136,19 +136,21 @@ class DataTransformation:
                     TargetValueMapping()._asdict()
                 )
 
+                target_feature_test_df = test_df[TARGET_COLUMN]
                 input_feature_test_df = test_df.drop(columns = [TARGET_COLUMN], 
                                                      axis = 1)
+                """
                 target_feature_test_df = drop_columns(df = input_feature_test_df,
                                                       cols = drop_columns) #drop_cols in notes?
+                """
                 logging.info(f"Drop the columns in {drop_columns} of test dataset")
+
                 target_feature_test_df = target_feature_test_df.replace(
                     TargetValueMapping()._asdict()
                 )
-                logging.info(
-                    "Got train features and test features of testing dataset")
+                logging.info("Got train features and test features of testing dataset")
 
-                logging.info(
-                    "Applying preprocessing object on training and testing df")
+                logging.info("Applying preprocessing object on training and testing df")
 
                 input_feature_train_arr = preprocessor.fit_transform(
                     input_feature_train_df)
