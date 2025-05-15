@@ -1,6 +1,6 @@
 import boto3
 import os
-from churn_Spring2025.constants import AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID_ENV,REGION_NAME
+from churn_Spring2025.constants import AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID,REGION_NAME
 from dotenv import load_dotenv #added
 
 class S3Client:
@@ -15,10 +15,10 @@ class S3Client:
 
         if S3Client.s3_resource==None or S3Client.s3_client==None:
             load_dotenv() #added
-            __access_key_id = os.getenv('AWS_ACCESS_KEY_ID_ENV') #added ''
+            __access_key_id = os.getenv('AWS_ACCESS_KEY_ID') #added ''
             __secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY') #added ''
             if __access_key_id is None:
-                raise Exception(f"Environment variable: {AWS_ACCESS_KEY_ID_ENV} is not not set.")
+                raise Exception(f"Environment variable: {AWS_ACCESS_KEY_ID} is not not set.")
             if __secret_access_key is None:
                 raise Exception(f"Environment variable: {AWS_SECRET_ACCESS_KEY} is not set.")
         
