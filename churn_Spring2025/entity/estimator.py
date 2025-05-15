@@ -25,20 +25,21 @@ class TelcoModel:
         self.preprocessing_object = preprocessing_object
         self.trained_model_object = trained_model_object
 
-    def predict(self, dataframe: DataFrame) -> DataFrame:
+    def predict(self, df: DataFrame) -> DataFrame:
         """
         Function accepts raw inputs and then transformed raw input using preprocessing_object
         which guarantees that the inputs are in the same format as the training data
         At last it performs prediction on transformed features
         """
-        logging.info("Entered predict method of UTruckModel class")
+        logging.info("Entered predict method of TelcoModel class")
 
         try:
             logging.info("Using the trained model to get predictions")
 
-            transformed_feature = self.preprocessing_object.transform(dataframe)
+            transformed_feature = self.preprocessing_object.transform(df)
 
             logging.info("Used the trained model to get predictions")
+
             return self.trained_model_object.predict(transformed_feature)
 
         except Exception as e:

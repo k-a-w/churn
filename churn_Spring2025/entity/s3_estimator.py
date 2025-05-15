@@ -9,7 +9,7 @@ class TelcoEstimator:
     This class is used to save and retrieve the model in s3 bucket and to do prediction
     """
 
-    def __init__(self, bucket_name,model_path):
+    def __init__(self, bucket_name,model_path,): #comma after path?
         """
         :param bucket_name: Name your model bucket
         :param model_path: Location of your model in bucket
@@ -26,7 +26,7 @@ class TelcoEstimator:
             print(e)
             return False
     
-    def load_model(self)->TelcoModel: #has comma after self?
+    def load_model(self,)->TelcoModel: #has comma after self?
         """
         Load the model from the model_path
         :return:

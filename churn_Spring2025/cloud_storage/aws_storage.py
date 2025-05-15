@@ -47,7 +47,7 @@ class SimpleStorageService:
                 if decode is True
                 else object_name.get()["Body"].read()
             )
-            conv_func = lambda: StringIO(func() if make_readable is True else func())
+            conv_func = lambda: StringIO(func()) if make_readable is True else func()
             logging.info("Exited the read_object method of S3Operations class")
             return conv_func()
         

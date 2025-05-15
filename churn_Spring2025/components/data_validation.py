@@ -130,6 +130,8 @@ class DataValidation:
 
             status = self.validate_number_of_columns(dataframe=train_df)
             logging.info(f"All required columns present in training dataframe: {status}")
+            
+            #Had commented this out?
             """
             if not status:
                 validation_error_msg += f"Columns are missing in training dataframe.\n"
@@ -146,6 +148,7 @@ class DataValidation:
             status = self.is_column_exist(df=test_df)
             if not status:
                 validation_error_msg += f"Columns are missing in test dataframe."
+            #Until here
             """
 
             validation_status = len(validation_error_msg) == 0

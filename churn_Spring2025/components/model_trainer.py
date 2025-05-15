@@ -27,7 +27,7 @@ class ModelTrainer:
         self.data_transformation_artifact = data_transformation_artifact
         self.model_trainer_config = model_trainer_config
 
-    def get_model_object_and_report(self, train: np.array, test: np.array) -> Tuple[object, object]:
+    def get_model_object_and_report(self, train:np.array, test:np.array) -> Tuple[object, object]:
         """
         Method Name :   get_model_object_and_report
         Description :   This function uses neuro_mf to get the best model object and report of the best model
@@ -74,7 +74,7 @@ class ModelTrainer:
             train_arr = load_numpy_array_data(file_path=self.data_transformation_artifact.transformed_train_file_path)
             test_arr = load_numpy_array_data(file_path=self.data_transformation_artifact.transformed_test_file_path)
             
-            best_model_detail ,metric_artifact = self.get_model_object_and_report(train=train_arr, test=test_arr)
+            best_model_detail, metric_artifact = self.get_model_object_and_report(train=train_arr, test=test_arr)
             
             preprocessing_obj = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
 
@@ -85,7 +85,7 @@ class ModelTrainer:
 
             telco_model = TelcoModel(preprocessing_object=preprocessing_obj,
                                        trained_model_object=best_model_detail.best_model)
-            logging.info("Created usvisa model object with preprocessor and model")
+            logging.info("Created telco model object with preprocessor and model")
             logging.info("Created best model file path.")
             save_object(self.model_trainer_config.trained_model_file_path, telco_model)
 

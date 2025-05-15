@@ -1,0 +1,11 @@
+artifact
+venv
+env
+.gitignore
+logs
+project_template.py
+demo.py
+README.md
+LICENSE
+churn.egg-info
+notebook

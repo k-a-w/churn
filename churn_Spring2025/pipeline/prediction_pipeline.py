@@ -70,9 +70,9 @@ class TelcoData:
 
     def get_telco_data_as_dict(self):
         """
-        This function returns a dictionary from USvisaData class input 
+        This function returns a dictionary from TelcoData class input 
         """
-        logging.info("Entered get_usvisa_data_as_dict method as USvisaData class")
+        logging.info("Entered get_telco_data_as_dict method as TelcoData class")
 
         try:
             input_data = {

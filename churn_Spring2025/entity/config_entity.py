@@ -11,10 +11,8 @@ class TrainingPipelineConfig:
     pipeline_name: str = PIPELINE_NAME
     artifact_dir: str = os.path.join(ARTIFACT_DIR, TIMESTAMP)
     timestamp: str = TIMESTAMP
-
-#ask why this isn't indented in class tomorrow
+    
 training_pipeline_config: TrainingPipelineConfig = TrainingPipelineConfig()
-
 @dataclass
 class DataIngestionConfig:
     data_ingestion_dir: str = os.path.join(training_pipeline_config.artifact_dir,
