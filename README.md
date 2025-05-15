@@ -16,7 +16,7 @@ Notes to self:
             --estimator.py
                 Line 43 .predict not recognized
             --s3_estimator.py
-                Line 62 .predict not recognized  UPDATE: recognized as of 5/15 at 1:31pm
+                Line 62 .predict not recognized  UPDATE: recognized as of 5/15 at 1:31pm but still None issue
     
     
     Ask about the read_csv() method in aws_storage.py
