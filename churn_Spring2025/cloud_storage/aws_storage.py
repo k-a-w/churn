@@ -117,6 +117,7 @@ class SimpleStorageService:
             model_obj = self.read_object(file_object, decode=False)
             model = pickle.loads(model_obj)
             logging.info("Exited the load_model method of S3Operations class")
+            return model
 
         except Exception as e:
             raise custom_exception(e, sys) from e

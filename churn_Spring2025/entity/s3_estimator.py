@@ -26,7 +26,7 @@ class TelcoEstimator:
             print(e)
             return False
     
-    def load_model(self,)->TelcoModel: #has comma after self?
+    def load_model(self)->TelcoModel: #has comma after self?
         """
         Load the model from the model_path
         :return:
@@ -59,6 +59,6 @@ class TelcoEstimator:
         try:
             if self.loaded_model is None:
                 self.loaded_model = self.load_model()
-            return self.loaded_model.predict(dataframe=dataframe)
+            return self.loaded_model.predict(dataframe) #dataframe=dataframe
         except Exception as e:
             raise custom_exception(e, sys)

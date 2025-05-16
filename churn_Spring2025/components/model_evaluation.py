@@ -77,10 +77,11 @@ class ModelEvaluation:
             trained_model_f1_score = self.model_trainer_artifact.metric_artifact.f1_score
 
             best_model_f1_score=None
+            pos_label = 'No' #added for f1_score, precision, and recall
             best_model = self.get_best_model()
             if best_model is not None:
                 y_hat_best_model = best_model.predict(x)
-                best_model_f1_score = f1_score(y, y_hat_best_model)
+                best_model_f1_score = f1_score(y, y_hat_best_model, pos_label=pos_label)
             
             tmp_best_model_score = 0 if best_model_f1_score is None else best_model_f1_score
             result = EvaluateModelResponse(trained_model_f1_score=trained_model_f1_score,
