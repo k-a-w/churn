@@ -70,5 +70,6 @@ AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID"
 AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
 REGION_NAME = "us-east-1"
 
-APP_HOST = "127.0.0.1" #updated 5/9
+APP_HOST = "0.0.0.0" #updated to 127.0.0.1 on 5/9
+#changed again based off Fall 2024 project
 APP_PORT = 8080
