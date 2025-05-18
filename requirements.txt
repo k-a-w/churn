@@ -21,5 +21,5 @@ fastapi #for flask type framework
 uvicorn #server for running fast api
 jinja2 #templating engine for frameworks that dynamically generate HTML
 python-multipart
-#-e . #syntax used in python to activate and set up 
 dotenv #added 5/18/2025 (used for env)
+-e . #syntax used in python to activate and set up 
