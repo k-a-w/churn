@@ -3,7 +3,10 @@ venv
 env
 .gitignore
 logs
-project_template.py
+template.py
+practice.py
+botopractice.py
+setup.py
 demo.py
 README.md
 LICENSE
