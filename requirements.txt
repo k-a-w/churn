@@ -22,4 +22,4 @@ uvicorn #server for running fast api
 jinja2 #templating engine for frameworks that dynamically generate HTML
 python-multipart
 dotenv #added 5/18/2025 (used for env)
--e . #syntax used in python to activate and set up 
+#-e . #syntax used in python to activate and set up 
